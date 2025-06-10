@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エキサイトバイク</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>エキサイトバイク</h1>
+        <div class="game-info">
+            <div class="score">スコア: <span id="score">0</span></div>
+            <div class="time">タイム: <span id="time">0:00</span></div>
+            <div class="speed">速度: <span id="speed">0</span> km/h</div>
+            <div class="combo">コンボ: <span id="combo">0</span>x</div>
+        </div>
+        <canvas id="game-canvas" width="800" height="400"></canvas>
+        <div class="controls">
+            <button id="start-button">ゲーム開始</button>
+            <button id="reset-button">リセット</button>
+            <button id="sound-toggle">🔊 サウンド</button>
+            <div class="instructions">
+                <h3>操作方法</h3>
+                <p>↑ : ジャンプ</p>
+                <p>↓ : しゃがむ</p>
+                <p>← : 減速</p>
+                <p>→ : 加速</p>
+                <p>スペース : ターボ</p>
+            </div>
+        </div>
+        
+        <!-- オーディオ要素 -->
+        <div id="audio-container" style="display: none;">
+            <audio id="bgm" loop>
+                <source src="sounds/bgm.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="jump-sound">
+                <source src="sounds/jump.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="land-sound">
+                <source src="sounds/land.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="combo-sound">
+                <source src="sounds/combo.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="special-combo-sound">
+                <source src="sounds/special-combo.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="crash-sound">
+                <source src="sounds/crash.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="turbo-sound">
+                <source src="sounds/turbo.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="engine-sound" loop>
+                <source src="sounds/engine.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
