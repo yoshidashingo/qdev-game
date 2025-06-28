@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダンジョン・クリッカー RPG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>ダンジョン・クリッカー RPG</h1>
+            <div class="stats">
+                <div class="stat">
+                    <span>レベル: </span>
+                    <span id="level">1</span>
+                </div>
+                <div class="stat">
+                    <span>HP: </span>
+                    <span id="hp">100</span>
+                    <span>/</span>
+                    <span id="maxHp">100</span>
+                </div>
+                <div class="stat">
+                    <span>MP: </span>
+                    <span id="mp">50</span>
+                    <span>/</span>
+                    <span id="maxMp">50</span>
+                </div>
+                <div class="stat">
+                    <span>EXP: </span>
+                    <span id="exp">0</span>
+                    <span>/</span>
+                    <span id="nextExp">100</span>
+                </div>
+                <div class="stat">
+                    <span>フロア: </span>
+                    <span id="floor">1</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <canvas id="gameCanvas" width="600" height="400"></canvas>
+            
+            <div class="ui-panel">
+                <div class="skills">
+                    <h3>スキル</h3>
+                    <button id="skill1" class="skill-btn">1: 攻撃 (MP:5)</button>
+                    <button id="skill2" class="skill-btn">2: 回復 (MP:10)</button>
+                    <button id="skill3" class="skill-btn">3: 魔法 (MP:15)</button>
+                </div>
+                
+                <div class="inventory">
+                    <h3>インベントリ</h3>
+                    <div id="inventoryItems" class="inventory-grid">
+                        <!-- アイテムが動的に追加される -->
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <h3>操作方法</h3>
+                    <p>クリック: 移動・攻撃・アイテム取得</p>
+                    <p>1,2,3: スキル使用</p>
+                    <p>I: インベントリ表示切り替え</p>
+                    <p>M: ミニマップ表示切り替え</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="message-area">
+            <div id="messageLog" class="message-log">
+                <p>ダンジョンへようこそ！クリックして移動しましょう。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ゲームオーバー画面 -->
+    <div id="gameOverScreen" class="modal hidden">
+        <div class="modal-content">
+            <h2>ゲームオーバー</h2>
+            <p>到達フロア: <span id="finalFloor"></span></p>
+            <p>最終レベル: <span id="finalLevel"></span></p>
+            <button id="restartBtn" class="btn">リスタート</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
